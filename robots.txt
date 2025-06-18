@@ -1,0 +1,16 @@
+User-agent: *
+Disallow:
+
+# Allow everything on the site to be indexed
+Allow: /
+
+# Google's image bot (optional if image ranking is relevant)
+User-agent: Googlebot-Image
+Disallow:
+
+# Google mobile bot (important for mobile-first indexing)
+User-agent: Googlebot-Mobile
+Disallow:
+
+# Explicit sitemap location
+Sitemap: https://www.amandataykexin.site/sitemap.xml
