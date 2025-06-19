@@ -86,352 +86,244 @@
 
 
 
- <style>
-
+<style>
   body {
-
     margin: 0;
-
     font-family: 'Segoe UI', sans-serif;
-
     background: linear-gradient(to right, #f7f8fa, #e3e9f0);
-
     color: #333;
-
     animation: fadeIn 1.2s ease-in;
-
   }
-
-
 
   h1, h2, h3 {
-
     color: #2c3e50;
-
     letter-spacing: 0.5px;
-
   }
-
-
 
   article, section {
-
     animation: fadeInUp 0.9s ease-in-out;
-
   }
-
-
 
   img:hover {
-
     transform: scale(1.03);
-
     transition: transform 0.3s ease;
-
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
   }
-
-
 
   @keyframes fadeIn {
-
     from { opacity: 0; }
-
     to   { opacity: 1; }
-
   }
-
-
 
   @keyframes fadeInUp {
-
     from { opacity: 0; transform: translateY(20px); }
-
     to   { opacity: 1; transform: translateY(0); }
-
   }
-
-
 
   p {
-
     font-size: 1.05rem;
-
   }
-
-
 
   ul {
-
     padding-left: 1.2rem;
-
   }
-
-
 
   ul li {
-
     margin-bottom: 0.5rem;
-
   }
-
-
 
   /* Navigation Styles */
-
   .navbar {
-
     position: sticky;
-
     top: 0;
-
     z-index: 1000;
-
     background-color: #2c3e50;
-
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
     transition: box-shadow 0.3s ease;
-
   }
-
-
 
   .nav-container {
-
     max-width: 1200px;
-
     margin: auto;
-
     padding: 0.75rem 1.5rem;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     flex-wrap: wrap;
-
   }
-
-
 
   .logo {
-
     display: flex;
-
     align-items: center;
-
     gap: 0.5rem;
-
     font-size: 1.3rem;
-
     font-weight: 600;
-
     color: #1abc9c;
-
     text-decoration: none;
-
   }
-
-
 
   .logo img {
-
     height: 24px;
-
   }
-
-
 
   .nav-links {
-
     list-style: none;
-
     display: flex;
-
     gap: 2rem;
-
     margin: 0;
-
     padding: 0;
-
     transform: scaleY(0);
-
     transform-origin: top;
-
     max-height: 0;
-
     overflow: hidden;
-
     transition: max-height 0.4s ease-in-out, transform 0.4s ease-in-out;
-
   }
-
-
 
   .nav-links li a {
-
     color: #ecf0f1;
-
     text-decoration: none;
-
     font-weight: 500;
-
     padding: 0.75rem 0;
-
     display: inline-block;
-
     transition: all 0.3s ease;
-
   }
-
-
 
   .nav-links li a:hover,
-
   .nav-links li a.active {
-
     color: #1abc9c;
-
     border-bottom: 2px solid #1abc9c;
-
     text-shadow: 0 0 6px rgba(26, 188, 156, 0.4);
-
   }
-
-
 
   .hamburger {
-
     display: none;
-
     font-size: 1.8rem;
-
     color: #ecf0f1;
-
     cursor: pointer;
-
   }
-
-
 
   #toggle-menu {
-
     display: none;
-
   }
-
-
 
   @media (min-width: 769px) {
-
     .nav-links {
-
       transform: scaleY(1);
-
       max-height: none;
-
       flex-direction: row;
-
     }
-
   }
-
-
 
   @media (max-width: 768px) {
-
     .hamburger {
-
       display: block;
-
     }
-
-
 
     #toggle-menu:checked + .hamburger + .nav-links {
-
       max-height: 300px;
-
       transform: scaleY(1);
-
       padding: 1rem 0;
-
     }
-
-
 
     .nav-links {
-
       width: 100%;
-
       flex-direction: column;
-
       background-color: #2c3e50;
-
     }
-
-
 
     .nav-links li {
-
       text-align: center;
-
       margin: 0.5rem 0;
-
     }
-
   }
-
-
 
   /* Floating Share Buttons */
-
   #floating-share {
-
     position: fixed;
-
     top: 40%;
-
     left: 10px;
-
     z-index: 999;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 12px;
-
   }
-
-
 
   #floating-share img {
-
     width: 36px;
-
     height: 36px;
-
     border-radius: 50%;
-
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-
     transition: transform 0.3s ease;
-
   }
-
-
 
   #floating-share img:hover {
-
     transform: scale(1.2);
-
   }
 
+  /* Comment Styles */
+  .comment-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #ffffff;
+    border-left: 4px solid #4caf50;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    text-align: left;
+  }
+
+  .comment-box img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .comment-content {
+    flex: 1;
+  }
+
+  .comment-header {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+
+  .comment-header small {
+    font-weight: normal;
+    font-size: 0.85rem;
+    color: #555;
+    margin-left: 6px;
+  }
+
+  .comment-box p {
+    margin: 0.2rem 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .comment-reply {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    background: #f1f1f1;
+    padding: 0.75rem;
+    border-left: 3px solid #222;
+    border-radius: 4px;
+  }
+
+  .comment-reply img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+  }
+
+  .comment-reply p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
 </style>
 
 </head>
@@ -703,33 +595,39 @@
 
 
 <!-- Comment & Feedback -->
-
 <section style="max-width: 960px; margin: 4rem auto; background: #f9f9f9; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
 
   <h2 style="text-align:center;">Comment & Feedback</h2>
 
-
-
   <!-- Facebook Comments -->
-
   <div class="fb-comments" data-href="https://www.amandataykexin.site/" data-width="100%" data-numposts="5"></div>
 
-
-
   <!-- Contact Form -->
-
   <form action="https://formsubmit.co/endgameis21@hotmail.com" method="POST" style="margin-top: 2rem;">
-
     <input type="text" name="name" placeholder="Your name" required style="width:100%; margin-bottom:1rem; padding:0.75rem;">
-
     <input type="email" name="email" placeholder="Your email" required style="width:100%; margin-bottom:1rem; padding:0.75rem;">
-
     <textarea name="message" placeholder="Your comment or feedback..." rows="5" required style="width:100%; margin-bottom:1rem; padding:0.75rem;"></textarea>
-
     <button type="submit" style="padding: 0.75rem 1.5rem; background: #222; color: #fff; border: none; border-radius: 4px;">Send Comment</button>
-
   </form>
 
+  <!-- Approved Comment -->
+<div class="comment-box">
+  <img src="/assets/councilofundergroundlogo.png" alt="User">
+  <div class="comment-content">
+    <p class="comment-header">
+      Jason <small>&lt;<a href="mailto:jasetang@gmail.com">jasetang@gmail.com</a>&gt;</small> says:
+    </p>
+    <p>
+      but if you f%%k her then it's okay what. you're paying for something at the end of the day even if it's not "worth it". not say you didn't get anything out of it. she's also relatively hot.
+    </p>
+
+    <!-- Admin Reply -->
+    <div class="comment-reply">
+      <img src="/assets/robot-holo-flicker.gif" alt="Admin">
+      <p><strong>Reply:</strong> i didnt.</p>
+    </div>
+  </div>
+</div>
 </section>
 
 
